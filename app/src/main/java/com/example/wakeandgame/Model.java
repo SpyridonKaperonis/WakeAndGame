@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Model {
 
+    //Creating Alarm model class
     public static class Alarm{
         public Time time;
         public Date date;

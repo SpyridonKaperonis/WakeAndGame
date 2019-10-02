@@ -11,11 +11,20 @@
         android:id="@+id/titleTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="Let's throw a spear!"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"/>
+        app:layout_constraintVertical_bias="0.05" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="142dp"
+        android:layout_height="141dp"
+        app:srcCompat="@drawable/javelinMan"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="574dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

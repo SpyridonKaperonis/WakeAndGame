@@ -1,27 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-
-    <TextView
-        android:id="@+id/timeTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="25dp"
-        android:paddingTop="10dp"
-        android:paddingRight="25dp"
-        android:paddingBottom="10dp"
-        android:text="00:00"
-        android:textSize="30sp" />
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/dateTV"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:text="(Date)"
-        android:textSize="30dp" />
+        android:text="date" />
+
+    <TextView
+        android:id="@+id/timeTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="time" />
+
+    <TextView
+        android:id="@+id/noteTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="note" />
+
+    <Button
+        android:id="@+id/cardBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Card Game" />
+
+    <Button
+        android:id="@+id/javelinBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Javelin Throw" />
+
+    <Button
+        android:id="@+id/puzzleBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Puzzle Game" />
+
+    <Button
+        android:id="@+id/idkBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="idk" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/finishBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finish" />
 </LinearLayout>

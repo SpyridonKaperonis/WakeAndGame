@@ -43,7 +43,7 @@
         android:id="@+id/idkBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="idk" />
+        android:text="Math Game" />
 
     <ProgressBar
         android:id="@+id/progressBar"

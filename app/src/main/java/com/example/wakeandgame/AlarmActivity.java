@@ -13,5 +13,19 @@ public class AlarmActivity extends AppCompatActivity {
 
         setContentView(R.layout.alarm_layout);
         Intent intent = getIntent();
+
+        //Spyridon
+
+
+
+        //Ben
+
+
+
+        //Seth
+
+
+
+        //Eli
     }
 }

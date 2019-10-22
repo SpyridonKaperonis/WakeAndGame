@@ -17,6 +17,15 @@ public class AlarmActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         //Spyridon
+        final Intent mathGameIntent = new Intent(this, MathGame.class);
+        Button mathGameBTN = findViewById(R.id.mathgameAct);
+        mathGameBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(mathGameIntent);
+
+            }
+        });
 
 
 

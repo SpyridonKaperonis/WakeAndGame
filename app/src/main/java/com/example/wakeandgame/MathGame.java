@@ -19,8 +19,7 @@ public class MathGame extends AppCompatActivity {
         mathBTNHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = getIntent();
-                startActivity(intent);
+
 
             }
 

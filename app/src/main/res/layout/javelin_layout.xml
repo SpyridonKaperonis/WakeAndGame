@@ -24,7 +24,7 @@
         android:id="@+id/imageView"
         android:layout_width="142dp"
         android:layout_height="141dp"
-        app:srcCompat="@drawable/javelinMan"
+        app:srcCompat="@drawable/javelin_man"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="574dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

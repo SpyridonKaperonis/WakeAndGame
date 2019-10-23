@@ -30,7 +30,14 @@ public class AlarmActivity extends AppCompatActivity {
 
 
         //Ben
-
+        final Intent puzzleIntent = new Intent(this, PicturePuzzle.class);
+        Button puzzleBTN = findViewById(R.id.puzzleBTN);
+        puzzleBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(puzzleIntent);
+            }
+        });
 
 
         //Seth

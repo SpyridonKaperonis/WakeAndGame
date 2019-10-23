@@ -11,9 +11,10 @@ public class MathGame extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mathgame_layout);
+
+        Intent intent = getIntent();
 
         Button mathBTNHome = findViewById(R.id.mathGameNav);
         mathBTNHome.setOnClickListener(new View.OnClickListener() {
@@ -24,6 +25,8 @@ public class MathGame extends AppCompatActivity {
             }
 
         });
+
+
 
 
 }

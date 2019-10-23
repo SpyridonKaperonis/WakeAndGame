@@ -14,12 +14,16 @@ public class MathGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mathgame_layout);
 
+        final Intent home = new Intent(this, MainActivity.class);
+
+
         Intent intent = getIntent();
 
         Button mathBTNHome = findViewById(R.id.mathGameNav);
         mathBTNHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(home);
 
 
             }

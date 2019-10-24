@@ -22,10 +22,15 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/characterIV"
         android:layout_width="142dp"
         android:layout_height="141dp"
-        app:srcCompat="@drawable/javelin_man"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="574dp" />
+        android:foregroundGravity="left|bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/javelin_man" />
 </androidx.constraintlayout.widget.ConstraintLayout>

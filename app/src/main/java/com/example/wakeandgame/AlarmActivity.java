@@ -61,6 +61,7 @@ public class AlarmActivity extends AppCompatActivity {
         finishBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(finish);
 
             }
         });

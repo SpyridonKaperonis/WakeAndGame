@@ -43,7 +43,7 @@
         android:text="Puzzle Game" />
 
     <Button
-        android:id="@+id/mathgameAct"
+        android:id="@+id/mathGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Math Game" />

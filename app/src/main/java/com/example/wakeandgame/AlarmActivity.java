@@ -11,14 +11,15 @@ public class AlarmActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.alarm_layout);
+
         Intent intent = getIntent();
 
         //Spyridon
         final Intent mathGameIntent = new Intent(this, MathGame.class);
-        Button mathGameBTN = findViewById(R.id.mathgameAct);
+        Button mathGameBTN = findViewById(R.id.mathGame);
         mathGameBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +52,16 @@ public class AlarmActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(javelinIntent);
+            }
+        });
+
+        //Finish Button Directs to MainActivity
+        final Intent finish = new Intent(this, MainActivity.class);
+        Button finishBTN = findViewById(R.id.finishBTN);
+        finishBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 

@@ -42,7 +42,14 @@ public class AlarmActivity extends AppCompatActivity {
 
 
         //Seth
-
+        final Intent cardgameIntent = new Intent(this, CardGameActivity.class);
+        Button cardBTN = findViewById(R.id.cardBTN);
+        cardBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(cardgameIntent);
+            }
+        });
 
 
         //Eli

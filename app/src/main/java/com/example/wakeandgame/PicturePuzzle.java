@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 public class PicturePuzzle extends AppCompatActivity {
 
     @Override
@@ -13,6 +14,6 @@ public class PicturePuzzle extends AppCompatActivity {
 
         setContentView(R.layout.picture_puzzle);
 
-        Intent intent = getIntent();
+        //Intent intent = getIntent();
     }
 }

@@ -3,22 +3,28 @@ package com.example.wakeandgame;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.animation.ObjectAnimator;
 import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Display;
 import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class JavelinActivity extends AppCompatActivity {
 
-    private int locationX;
-    private int locationY;
+    private int numClicks = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,45 +34,43 @@ public class JavelinActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final ImageView characterIV = findViewById(R.id.characterIV);
+        final Button screenBTN = findViewById(R.id.screenBTN);
 
         //Attempting to create an event where I slide the image in order to calculate
         //an angle for the javelin throw itself
 
-        characterIV.setOnTouchListener(new View.OnTouchListener() {
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int imageWidth = (characterIV.getWidth())*-1;
+
+        final Animation animationX = new TranslateAnimation(-400, width, 0, 0);
+        animationX.setDuration(2000);
+        animationX.setRepeatMode(Animation.RELATIVE_TO_SELF);
+        animationX.setRepeatCount(Animation.INFINITE);
+        characterIV.setAnimation(animationX);
+
+        screenBTN.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View view) {
 
-                final int x = (int)motionEvent.getRawX();
-                final int y = (int)motionEvent.getRawY();
-
-                switch(motionEvent.getAction()){
-
-                    case MotionEvent.ACTION_DOWN:
-                        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams)view.getLayoutParams();
-
-                        locationX = x - layoutParams.leftMargin;
-                        locationY = y - layoutParams.topMargin;
-                        break;
-
-                    case MotionEvent.ACTION_MOVE:
-                        ConstraintLayout.LayoutParams layoutP = (ConstraintLayout.LayoutParams)view.getLayoutParams();
-
-                        layoutP.leftMargin = x - locationX;
-                        layoutP.bottomMargin = locationY - y;
-                        layoutP.rightMargin = 0;
-                        layoutP.topMargin = 0;
-
-                        characterIV.setLayoutParams(layoutP);
-                        break;
-
-                    case MotionEvent.ACTION_UP:
-
-                        break;
-
-                    default:
-                        break;
+                if(numClicks >= 1){
+                    screenBTN.setVisibility(View.INVISIBLE);
                 }
-                return true;
+                else{
+                    switch (numClicks){
+                        case 0:
+                            numClicks++;
+                            characterIV.clearAnimation();
+                            Log.d("Animation", "case 0 hit: numClicks updated, animation cleared");
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                }
             }
         });
 

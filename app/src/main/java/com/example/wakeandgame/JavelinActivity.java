@@ -89,9 +89,8 @@ public class JavelinActivity extends AppCompatActivity {
 
                         characterIV.setY(getY);
 
-                        Log.d("Animation", "distance from (0,fullScreen): " + findStrength(getX, getY));
-
-
+                        Log.d("Animation", "Velocity of throw: " + findVelocity(getX, getY));
+                        Log.d("Animation", "Trajectory of throw: " + findTrajectory(characterIV.getX(), characterIV.getY()));
 
                     }
 
@@ -100,16 +99,35 @@ public class JavelinActivity extends AppCompatActivity {
 
     }
 
-    public float findStrength(float getX, float getY){
+    public double findVelocity(double getX, double getY){
+
+        ImageView characterIV = findViewById(R.id.characterIV);
+
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        int width = size.x;
-        final int height = size.y;
+        double height = size.y;
 
-        float distance = (float)Math.sqrt(Math.pow((height - getY), 2) + Math.pow(getX, 2));
+        double velocity = Math.sqrt(Math.pow((height - characterIV.getY()), 2) + Math.pow(characterIV.getX(), 2));
 
-        return distance;
+        return velocity;
+    }
+
+    public double findTrajectory(double getX, double getY){
+
+        ImageView characterIV = findViewById(R.id.characterIV);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        double height = size.y;
+
+        Log.d("Animation", "Opposite is: " + (height - characterIV.getY()));
+        Log.d("Animation", "Adjacent is: " + characterIV.getX());
+
+        double trajectory = Math.atan((height - characterIV.getY())/characterIV.getX());
+
+        return trajectory;
     }
 
 }

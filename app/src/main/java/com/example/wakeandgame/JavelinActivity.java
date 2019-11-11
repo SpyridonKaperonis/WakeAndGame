@@ -3,7 +3,10 @@ package com.example.wakeandgame;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Point;
@@ -43,36 +46,70 @@ public class JavelinActivity extends AppCompatActivity {
         Point size = new Point();
         display.getSize(size);
         int width = size.x;
-        int imageWidth = (characterIV.getWidth())*-1;
+        final int height = size.y;
 
-        final Animation animationX = new TranslateAnimation(-400, width, 0, 0);
-        animationX.setDuration(2000);
-        animationX.setRepeatMode(Animation.RELATIVE_TO_SELF);
-        animationX.setRepeatCount(Animation.INFINITE);
-        characterIV.setAnimation(animationX);
+            final ObjectAnimator translateX = ObjectAnimator.ofFloat(characterIV, "translationX", -400f, width+400f);
+            final ObjectAnimator translateY = ObjectAnimator.ofFloat(characterIV, "translationY", 300f, height*(-1)-400f);
+            translateX.setRepeatCount(ValueAnimator.INFINITE);
+            translateY.setRepeatCount(ValueAnimator.INFINITE);
 
-        screenBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            final AnimatorSet setX = new AnimatorSet();
+            setX.setDuration(2000);
+            setX.play(translateX);
+            setX.start();
 
-                if(numClicks >= 1){
-                    screenBTN.setVisibility(View.INVISIBLE);
-                }
-                else{
-                    switch (numClicks){
-                        case 0:
-                            numClicks++;
-                            characterIV.clearAnimation();
-                            Log.d("Animation", "case 0 hit: numClicks updated, animation cleared");
-                            break;
-                        default:
-                            break;
+            final AnimatorSet setY = new AnimatorSet();
+
+            screenBTN.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    float getX = 0;
+                    float getY = 0;
+                    numClicks ++;
+                    if(numClicks == 1) {
+                        Log.d("Animation", "numClicks is 1");
+                        Log.d("Animation", "getX():" + characterIV.getX());
+                        getX = characterIV.getX();
+
+                        setX.end();
+
+                        characterIV.setX(getX);
+
+                        setY.setDuration(2000);
+                        setY.play(translateY);
+                        setY.start();
+                    }
+                    else if(numClicks == 2){
+                        Log.d("Animation", "numClicks is 2");
+                        Log.d("Animation", "getY():" + characterIV.getY());
+
+                        getY = characterIV.getY();
+
+                        setY.end();
+
+                        characterIV.setY(getY);
+
+                        Log.d("Animation", "distance from (0,fullScreen): " + findStrength(getX, getY));
+
+
+
                     }
 
-
                 }
-            }
-        });
+            });
 
     }
+
+    public float findStrength(float getX, float getY){
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        final int height = size.y;
+
+        float distance = (float)Math.sqrt(Math.pow((height - getY), 2) + Math.pow(getX, 2));
+
+        return distance;
+    }
+
 }

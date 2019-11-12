@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/javelin_man" />
+        app:srcCompat="@drawable/icons8spear48" />
 
     <Button
         android:id="@+id/screenBTN"

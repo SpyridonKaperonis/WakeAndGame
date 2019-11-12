@@ -42,92 +42,135 @@ public class JavelinActivity extends AppCompatActivity {
         //Attempting to create an event where I slide the image in order to calculate
         //an angle for the javelin throw itself
 
+        //Getting screen sizes to manipulate the current screen state
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         int width = size.x;
         final int height = size.y;
 
-            final ObjectAnimator translateX = ObjectAnimator.ofFloat(characterIV, "translationX", -400f, width+400f);
-            final ObjectAnimator translateY = ObjectAnimator.ofFloat(characterIV, "translationY", 300f, height*(-1)-400f);
-            translateX.setRepeatCount(ValueAnimator.INFINITE);
-            translateY.setRepeatCount(ValueAnimator.INFINITE);
+        //Creating ObjectAnimator for managing its translation affects
+        final ObjectAnimator translateX = ObjectAnimator.ofFloat(characterIV, "translationX", -400f, width+400f);
+        final ObjectAnimator translateY = ObjectAnimator.ofFloat(characterIV, "translationY", 300f, height*(-1)-400f);
+        translateX.setRepeatCount(ValueAnimator.INFINITE);
+        translateY.setRepeatCount(ValueAnimator.INFINITE);
 
-            final AnimatorSet setX = new AnimatorSet();
-            setX.setDuration(2000);
-            setX.play(translateX);
-            setX.start();
+        //Setting the AnimatorSet's to manage animation direction and speed
+        final AnimatorSet setX = new AnimatorSet();
+        final AnimatorSet setY = new AnimatorSet();
+        setX.setDuration(2000);
+        setX.play(translateX);
+        setX.start();
 
-            final AnimatorSet setY = new AnimatorSet();
+        //Full screen button that will handle the number of clicks and the relevant change in direction
+        screenBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-            screenBTN.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    float getX = 0;
-                    float getY = 0;
-                    numClicks ++;
-                    if(numClicks == 1) {
-                        Log.d("Animation", "numClicks is 1");
-                        Log.d("Animation", "getX():" + characterIV.getX());
-                        getX = characterIV.getX();
+                //Values for grabbing the location of the object once screen is clicked
+                double getX = 0;
+                double getY = 0;
 
-                        setX.end();
+                //Button has been clicked if onClick() has been activated so increment one
+                numClicks ++;
 
-                        characterIV.setX(getX);
+                /*
+                if clicked once{
+                    get characterIV current x-position,
+                    end translation on x-axis,
+                    set characterIV x location to current position captured,
+                    begin translation on y-axis
+                }
+                 */
+                if(numClicks == 1) {
+                    Log.d("Animation", "numClicks is 1");
+                    Log.d("Animation", "getX():" + characterIV.getX());
+                    getX = characterIV.getX();
 
-                        setY.setDuration(2000);
-                        setY.play(translateY);
-                        setY.start();
-                    }
-                    else if(numClicks == 2){
-                        Log.d("Animation", "numClicks is 2");
-                        Log.d("Animation", "getY():" + characterIV.getY());
+                    setX.end();
 
-                        getY = characterIV.getY();
+                    characterIV.setX((float)getX);
 
-                        setY.end();
+                    setY.setDuration(2000);
+                    setY.play(translateY);
+                    setY.start();
+                }
 
-                        characterIV.setY(getY);
+                /*
+                else if clicked a second time{
+                    get characterIV current y-position,
+                    end translation on y-axis,
+                    set characterIV y location to current position captured
+                }
+                 */
 
-                        Log.d("Animation", "Velocity of throw: " + findVelocity(getX, getY));
-                        Log.d("Animation", "Trajectory of throw: " + findTrajectory(characterIV.getX(), characterIV.getY()));
+                else if(numClicks == 2){
+                    Log.d("Animation", "numClicks is 2");
+                    Log.d("Animation", "getY():" + characterIV.getY());
 
-                    }
+                    getY = characterIV.getY();
+
+                    setY.end();
+
+                    characterIV.setY((float)getY);
+
+                    Log.d("Animation", "Velocity of throw: " + findVelocity(characterIV.getX(), characterIV.getY()));
+                    Log.d("Animation", "Trajectory of throw: " + Math.toDegrees(findTrajectory(characterIV.getX(), characterIV.getY())));
+                    Log.d("Animation", "Distance of throw: " + distance(findVelocity(characterIV.getX(), characterIV.getY()),
+                            Math.toDegrees(findTrajectory(characterIV.getX(), characterIV.getY())), (height - characterIV.getY())));
 
                 }
-            });
+
+            }
+        });
 
     }
 
-    public double findVelocity(double getX, double getY){
+    /*
+    Using the characterIV coordinate (as the parameters) and phone display, get the location of the image and use
+    the pythagorean theorem to get the length of the hypotenuse, of which will also
+    be treated as its magnitude, therefore capturing the strength and distance of
+    initial throw, creating a velocity of the throw itself.
+     */
 
-        ImageView characterIV = findViewById(R.id.characterIV);
+    public double findVelocity(double getX, double getY){
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         double height = size.y;
 
-        double velocity = Math.sqrt(Math.pow((height - characterIV.getY()), 2) + Math.pow(characterIV.getX(), 2));
+        double velocity = Math.sqrt(Math.pow((height - getY), 2) + Math.pow(getX, 2));
 
         return velocity;
     }
 
-    public double findTrajectory(double getX, double getY){
+    /*
+    Using characterIV coordinate (as the parameters) and the phone display, use the coordinates to
+    find the angle of trajectory by taking the arctangent of getY/getX
+     */
 
-        ImageView characterIV = findViewById(R.id.characterIV);
+    public double findTrajectory(double getX, double getY){
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         double height = size.y;
 
-        Log.d("Animation", "Opposite is: " + (height - characterIV.getY()));
-        Log.d("Animation", "Adjacent is: " + characterIV.getX());
+        Log.d("Animation", "Opposite is: " + (height - getY));
+        Log.d("Animation", "Adjacent is: " + getX);
 
-        double trajectory = Math.atan((height - characterIV.getY())/characterIV.getX());
+        double trajectory = Math.atan((height - getY)/getX);
 
         return trajectory;
+    }
+
+    public double distance(double velocity, double angle, double height){
+
+        double gravity = 9.81;
+
+        return velocity * Math.cos(angle)*(velocity*Math.sin(angle) + (Math.sqrt(
+                (Math.pow(velocity, 2)*Math.pow(Math.sin(angle), 2)) + (2*height*gravity)))/gravity);
     }
 
 }

@@ -13,7 +13,9 @@
         <activity android:name=".CardGameActivity"></activity>
         <activity android:name=".MathGame" />
         <activity android:name=".PicturePuzzle" />
-        <activity android:name=".JavelinActivity" />
+        <activity
+            android:name=".JavelinActivity"
+            android:label="Javelin Toss"/>
         <activity android:name=".AlarmActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

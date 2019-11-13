@@ -1,5 +1,6 @@
 package com.example.wakeandgame;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -37,8 +38,8 @@ public class JavelinDialog extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        builder.setTitle("Thanks for throwing!");
-        builder.setMessage("You threw the javelin " + distance);
+        builder.setTitle("Great throw!");
+        builder.setMessage("You threw the javelin " + distance + " pixels");
         builder.setPositiveButton("THROW AGAIN", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

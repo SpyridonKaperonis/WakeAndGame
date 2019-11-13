@@ -7,6 +7,7 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Point;
@@ -25,7 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class JavelinActivity extends AppCompatActivity {
+public class JavelinActivity extends AppCompatActivity implements JavelinDialog.JavelinDialogCall {
 
     private int numClicks = 0;
 
@@ -116,8 +117,13 @@ public class JavelinActivity extends AppCompatActivity {
 
                     Log.d("Animation", "Velocity of throw: " + findVelocity(characterIV.getX(), characterIV.getY()));
                     Log.d("Animation", "Trajectory of throw: " + Math.toDegrees(findTrajectory(characterIV.getX(), characterIV.getY())));
-                    Log.d("Animation", "Distance of throw: " + distance(findVelocity(characterIV.getX(), characterIV.getY()),
-                            Math.toDegrees(findTrajectory(characterIV.getX(), characterIV.getY())), (height - characterIV.getY())));
+                    Log.d("Animation", "Distance of throw: " + Math.abs(distance(findVelocity(characterIV.getX(), characterIV.getY()),
+                            Math.toDegrees(findTrajectory(characterIV.getX(), characterIV.getY())), (height - characterIV.getY()))));
+
+                    JavelinDialog dialog = new JavelinDialog(Math.abs(Math.round(distance(findVelocity(characterIV.getX(), characterIV.getY()),
+                            Math.toDegrees(findTrajectory(characterIV.getX(), characterIV.getY())), (height - characterIV.getY())))));
+
+                    dialog.show(getSupportFragmentManager(), "Javelin Dialog");
 
                 }
 
@@ -169,8 +175,20 @@ public class JavelinActivity extends AppCompatActivity {
 
         double gravity = 9.81;
 
-        return velocity * Math.cos(angle)*(velocity*Math.sin(angle) + (Math.sqrt(
-                (Math.pow(velocity, 2)*Math.pow(Math.sin(angle), 2)) + (2*height*gravity)))/gravity);
+        return velocity * Math.cos(angle)*((velocity*Math.sin(angle)) + ((Math.sqrt(
+                (Math.pow(velocity, 2)*Math.pow(Math.sin(angle), 2)) + (2*height*gravity)))/gravity));
     }
 
+    //Methods interfaced from JavelinDialog.JavelinDialogCall
+    @Override
+    public void restartActivity() {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
+    @Override
+    public void endActivity() {
+        finish();
+    }
 }

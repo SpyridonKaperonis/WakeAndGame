@@ -1,6 +1,8 @@
 package com.example.wakeandgame;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +26,12 @@ public class MainActivity extends AppCompatActivity{
         Button tempBTN = findViewById(R.id.tempBTN);
 
         final Intent intent = new Intent(this, AlarmActivity.class);
+
+        AlarmsAdapter alarmServer = new AlarmsAdapter(model);
+        RecyclerView alarmRV = findViewById(R.id.alarmRV);
+        alarmRV.setAdapter(alarmServer);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        alarmRV.setLayoutManager(manager);
 
         tempBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,5 +57,6 @@ public class MainActivity extends AppCompatActivity{
                         timeET.setText("");
                     }
                 });
+
     }
 }

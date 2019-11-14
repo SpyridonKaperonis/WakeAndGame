@@ -6,8 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
+import java.sql.Date;
+import java.sql.Time;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
+
+    private ArrayList<Model.Alarm> model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +31,23 @@ public class MainActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+
+        model = new ArrayList<Model.Alarm>();
+
+                Button newBTN = findViewById(R.id.newBTN);
+
+                newBTN.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        EditText dateET = findViewById(R.id.dateET);
+                        EditText timeET = findViewById(R.id.timeET);
+                        EditText noteET;
+
+                        model.add(new Model.Alarm(dateET.getText().toString(),timeET.getText().toString(), "hello"));
+
+                        dateET.setText("");
+                        timeET.setText("");
+                    }
+                });
     }
 }

@@ -62,7 +62,7 @@ public class AlarmsAdapter extends RecyclerView.Adapter<AlarmsAdapter.AlarmViewH
         TextView timeTV = holder.theView.findViewById(R.id.timeTV);
 
         dateTV.setText(alarms.arrModel.get(position).date);
-        timeTV.setText(alarms.arrModel.get(position).date);
+        timeTV.setText(alarms.arrModel.get(position).time);
     }
 
     @Override

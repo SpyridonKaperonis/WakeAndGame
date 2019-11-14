@@ -6,7 +6,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.selection.ItemDetailsLookup;
 
 import org.w3c.dom.Text;
 
@@ -24,6 +26,19 @@ public class AlarmsAdapter extends RecyclerView.Adapter<AlarmsAdapter.AlarmViewH
 
         public AlarmViewHolder avh = this;
 
+        public ItemDetailsLookup.ItemDetails getItemDetails() {
+            return new ItemDetailsLookup.ItemDetails() {
+                @Override
+                public int getPosition() {
+                    return avh.getAdapterPosition();
+                }
+                @Nullable
+                @Override
+                public Object getSelectionKey() {
+                    return avh.getItemId();
+                }
+            };
+        }
     }
 
     private ArrayList<Model.Alarm> alarms = null;

@@ -1,11 +1,13 @@
 package com.example.wakeandgame;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,10 +30,29 @@ public class MainActivity extends AppCompatActivity{
         final Intent intent = new Intent(this, AlarmActivity.class);
 
         AlarmsAdapter alarmServer = new AlarmsAdapter(model);
-        RecyclerView alarmRV = findViewById(R.id.alarmRV);
+        final RecyclerView alarmRV = findViewById(R.id.alarmRV);
         alarmRV.setAdapter(alarmServer);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         alarmRV.setLayoutManager(manager);
+
+        final class AlarmDetailsLookup extends ItemDetailsLookup {
+            // Need to know the recycler to ask.
+            private final RecyclerView mRecyclerView;
+            AlarmDetailsLookup(RecyclerView recyclerView) {
+                mRecyclerView = recyclerView;
+            }
+            public ItemDetails getItemDetails(MotionEvent e) {
+                // Get the x,y and see if we can find a subview
+                View view = alarmRV.findChildViewUnder(e.getX(), e.getY());
+                if (view != null) {
+                    RecyclerView.ViewHolder holder = alarmRV.getChildViewHolder(view);
+                    if (holder instanceof AlarmsAdapter.AlarmViewHolder) {
+                        return ((AlarmsAdapter.AlarmViewHolder) holder).getItemDetails();
+                    }
+                }
+                return null;
+            }
+        }
 
         tempBTN.setOnClickListener(new View.OnClickListener() {
             @Override

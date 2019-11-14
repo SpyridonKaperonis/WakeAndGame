@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
 
-    private ArrayList<Model.Alarm> model;
+    private Model model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity{
 
         final Intent intent = new Intent(this, AlarmActivity.class);
 
-        AlarmsAdapter alarmServer = new AlarmsAdapter(model);
+        AlarmsAdapter alarmServer = new AlarmsAdapter();
         final RecyclerView alarmRV = findViewById(R.id.alarmRV);
         alarmRV.setAdapter(alarmServer);
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        model = new ArrayList<Model.Alarm>();
+        model = Model.getMyModel();
 
                 Button newBTN = findViewById(R.id.newBTN);
 
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity{
                         EditText timeET = findViewById(R.id.timeET);
                         EditText noteET;
 
-                        model.add(new Model.Alarm(dateET.getText().toString(),timeET.getText().toString(), "hello"));
+                        model.arrModel.add(new Model.Alarm(dateET.getText().toString(),timeET.getText().toString(), "hello"));
 
                         dateET.setText("");
                         timeET.setText("");

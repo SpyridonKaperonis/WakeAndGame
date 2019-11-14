@@ -41,17 +41,17 @@ public class AlarmsAdapter extends RecyclerView.Adapter<AlarmsAdapter.AlarmViewH
         }
     }
 
-    private ArrayList<Model.Alarm> alarms = null;
+    private Model alarms = null;
 
 
-    public AlarmsAdapter(ArrayList<Model.Alarm> alarms){
+    public AlarmsAdapter(){
         super();
-        this.alarms = alarms;
+        this.alarms = Model.getMyModel();
     }
     @NonNull
     @Override
     public AlarmViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.alarm_layout, parent, false);
+        LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.alarm_rv_layout, parent, false);
 
         return new AlarmViewHolder(v);
     }
@@ -60,11 +60,14 @@ public class AlarmsAdapter extends RecyclerView.Adapter<AlarmsAdapter.AlarmViewH
     public void onBindViewHolder(@NonNull AlarmViewHolder holder, int position) {
         TextView dateTV = holder.theView.findViewById(R.id.dateTV);
         TextView timeTV = holder.theView.findViewById(R.id.timeTV);
+
+        dateTV.setText(alarms.arrModel.get(position).date);
+        timeTV.setText(alarms.arrModel.get(position).date);
     }
 
     @Override
     public int getItemCount() {
-        return alarms.size();
+        return alarms.arrModel.size();
     }
 
 

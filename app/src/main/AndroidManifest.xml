@@ -15,7 +15,7 @@
         <activity android:name=".PicturePuzzle" />
         <activity
             android:name=".JavelinActivity"
-            android:label="Javelin Toss"/>
+            android:label="Javelin Toss" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -79,5 +79,18 @@ public class MainActivity extends AppCompatActivity{
                     }
                 });
 
+                //Possible new alarm interface
+        Button newAlarmBTN = findViewById(R.id.newAlarmBTN);
+        final Intent intent1 = new Intent(this, NewAlarmActivity.class);
+
+        newAlarmBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, NewAlarmActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
+
 }

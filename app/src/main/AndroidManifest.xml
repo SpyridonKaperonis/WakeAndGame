@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".CardGameActivity"></activity>
+        <activity android:name=".NewAlarmActivity"></activity>
+        <activity android:name=".CardGameActivity" />
         <activity android:name=".MathGame" />
         <activity android:name=".PicturePuzzle" />
         <activity

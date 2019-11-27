@@ -1,5 +1,7 @@
 package com.example.wakeandgame;
 
+import android.widget.ToggleButton;
+
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,8 +24,6 @@ public class Model {
             this.date = date;
             this.time = time;
             this.note = note;
-
-
         }
 
     }

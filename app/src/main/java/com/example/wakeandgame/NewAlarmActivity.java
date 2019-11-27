@@ -45,7 +45,7 @@ public class NewAlarmActivity extends AppCompatActivity {
                 TimePickerDialog timePicker = new TimePickerDialog(NewAlarmActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int inputHour, int inputMinute) {
-                        if((inputMinute % 10) != 0) {
+                        if(inputMinute < 10) {
                             timeTV.setText(inputHour + ":0" + inputMinute);
                         }else{
                             timeTV.setText(inputHour + ":" + inputMinute);
@@ -74,18 +74,18 @@ public class NewAlarmActivity extends AppCompatActivity {
             }
         });
 
-        Intent createIntent = new Intent();
-
-        createIntent.putExtra("hour", hour);
-        createIntent.putExtra("minute", minute);
-        createIntent.putExtra("month", month);
-        createIntent.putExtra("day", day);
-        createIntent.putExtra("year", year);
-        createIntent.putExtra("date", dateTV.getText());
-        createIntent.putExtra("time", timeTV.getText());
-        setResult(1,createIntent);
-
         newFinishBTN = findViewById(R.id.newFinishBTN);
+
+        newFinishBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent createIntent = new Intent();
+                createIntent.putExtra("date", dateTV.getText());
+                createIntent.putExtra("time", timeTV.getText());
+                setResult(1, createIntent);
+                finish();
+            }
+        });
 
     }
 }

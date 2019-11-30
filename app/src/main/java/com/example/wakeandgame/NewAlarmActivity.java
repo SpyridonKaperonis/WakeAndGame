@@ -15,6 +15,7 @@ import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -79,11 +80,15 @@ public class NewAlarmActivity extends AppCompatActivity {
         newFinishBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent createIntent = new Intent();
-                createIntent.putExtra("date", dateTV.getText());
-                createIntent.putExtra("time", timeTV.getText());
-                setResult(1, createIntent);
-                finish();
+                if((dateTV.getText() == null) || (timeTV.getText() == null)){
+                    setResult(0, null);
+                } else {
+                    Intent createIntent = new Intent();
+                    createIntent.putExtra("date", dateTV.getText());
+                    createIntent.putExtra("time", timeTV.getText());
+                    setResult(1, createIntent);
+                    finish();
+                }
             }
         });
 

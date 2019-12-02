@@ -2,6 +2,8 @@ package com.example.wakeandgame;
 
 import android.widget.ToggleButton;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,8 +19,6 @@ public class Model {
         public String time;
         public String date;
         public String note;
-
-
 
         public Alarm(String date, String time, String note){
             this.date = date;

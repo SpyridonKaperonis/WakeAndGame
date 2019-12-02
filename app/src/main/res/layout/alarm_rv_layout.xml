@@ -12,8 +12,8 @@
         android:paddingTop="1dp"
         android:paddingRight="25dp"
         android:paddingBottom="1dp"
-        android:text="00:00"
-        android:textSize="30sp" />
+        android:text="(Time)"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/dateTV"
@@ -23,7 +23,7 @@
         android:paddingTop="1dp"
         android:paddingBottom="1dp"
         android:text="(Date)"
-        android:textSize="30dp" />
+        android:textSize="24sp" />
 
     <ToggleButton
         android:id="@+id/alarmTOG"
@@ -32,4 +32,11 @@
         android:layout_weight="1"
         android:layout_gravity="right"
         android:text="ToggleButton" />
+
+    <Button
+        android:id="@+id/deleteBTN"
+        android:layout_width="15dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="DELETE" />
 </LinearLayout>

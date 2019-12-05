@@ -23,5 +23,7 @@ public class CardGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         GridView gridView = (GridView) findViewById(R.id.cardGV);
+        CardAdapter cardAdapter = new CardAdapter(this);
+        gridView.setAdapter(cardAdapter);
     }
 }

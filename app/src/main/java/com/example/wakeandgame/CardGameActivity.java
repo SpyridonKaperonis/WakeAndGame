@@ -3,6 +3,7 @@ package com.example.wakeandgame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.GridView;
 import android.widget.ImageView;
 
 public class CardGameActivity extends AppCompatActivity {
@@ -14,10 +15,12 @@ public class CardGameActivity extends AppCompatActivity {
 
     int[] pos = {0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7};
     int currentPos = -1;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        GridView gridView = (GridView) findViewById(R.id.cardGV);
     }
 }

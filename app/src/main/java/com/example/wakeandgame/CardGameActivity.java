@@ -56,7 +56,14 @@ public class CardGameActivity extends AppCompatActivity {
                     {
                         ((ImageView)view).setImageResource(drawable[pos[position]]);
                         currPair++;
+
+                        if(currPair == 0)
+                        {
+                            Toast.makeText(getApplicationContext(), "You Win!", Toast.LENGTH_SHORT).show();
+                        }
                     }
+
+                    currentPos = -1;
                 }
             }
         });

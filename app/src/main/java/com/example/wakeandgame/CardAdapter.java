@@ -39,10 +39,10 @@ public class CardAdapter extends BaseAdapter {
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         }
         else
-        {
+
             imageView = (ImageView)convertView;
             imageView.setImageResource(R.drawable.card_back);
-        }
+
 
         return imageView;
     }

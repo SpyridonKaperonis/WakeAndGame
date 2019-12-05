@@ -3,6 +3,8 @@ package com.example.wakeandgame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -25,5 +27,25 @@ public class CardGameActivity extends AppCompatActivity {
         GridView gridView = (GridView) findViewById(R.id.cardGV);
         CardAdapter cardAdapter = new CardAdapter(this);
         gridView.setAdapter(cardAdapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(currentPos < 0)
+                {
+                    currentPos = position;
+                    currImage = (ImageView) view;
+                    ((ImageView)view).setImageResource(drawable[pos[position]]);
+                }
+
+                else
+                {
+                    if(currentPos == position)
+                    {
+                        ((ImageView)view).setImageResource(R.drawable.card_back);
+                    }
+                }
+            }
+        });
     }
 }

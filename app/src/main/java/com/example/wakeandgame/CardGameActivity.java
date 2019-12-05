@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class CardGameActivity extends AppCompatActivity {
 
@@ -43,6 +44,18 @@ public class CardGameActivity extends AppCompatActivity {
                     if(currentPos == position)
                     {
                         ((ImageView)view).setImageResource(R.drawable.card_back);
+                    }
+
+                    else if(pos[currentPos] != pos[position])
+                    {
+                        currImage.setImageResource(R.drawable.card_back);
+                        Toast.makeText(getApplicationContext(), "Not a match... ", Toast.LENGTH_SHORT).show();
+                    }
+
+                    else
+                    {
+                        ((ImageView)view).setImageResource(drawable[pos[position]]);
+                        currPair++;
                     }
                 }
             }

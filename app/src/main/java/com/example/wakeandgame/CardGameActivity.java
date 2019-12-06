@@ -28,8 +28,8 @@ public class CardGameActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        GridView gridView = (GridView) findViewById(R.id.cardGV);
-        CardAdapter cardAdapter = new CardAdapter(this);
+        GridView gridView = findViewById(R.id.cardGV);
+        CardAdapter cardAdapter = new CardAdapter(getApplicationContext());
         gridView.setAdapter(cardAdapter);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

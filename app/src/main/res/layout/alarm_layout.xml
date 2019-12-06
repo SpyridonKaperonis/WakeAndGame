@@ -4,6 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Background"
+
     tools:context=".AlarmActivity">
 
     <TextView
@@ -28,24 +30,32 @@
         android:id="@+id/cardBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/roundbuttons"
         android:text="Card Game" />
 
     <Button
         android:id="@+id/javelinBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/roundbuttons"
         android:text="Javelin Throw" />
 
     <Button
         android:id="@+id/puzzleBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/roundbuttons"
         android:text="Puzzle Game" />
 
     <Button
         android:id="@+id/mathGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/roundbuttons"
         android:text="Math Game" />
 
     <ProgressBar
@@ -58,5 +68,7 @@
         android:id="@+id/finishBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/roundbuttons"
         android:text="Finish" />
 </LinearLayout>

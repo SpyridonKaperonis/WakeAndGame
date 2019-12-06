@@ -33,8 +33,9 @@
 
     <Button
         android:id="@+id/chooseTimeBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="118dp"
+        android:layout_height="47dp"
+        android:background="@drawable/roundbuttons"
         android:text="CHOOSE TIME"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,8 +46,9 @@
 
     <Button
         android:id="@+id/chooseDateBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="118dp"
+        android:layout_height="47dp"
+        android:background="@drawable/roundbuttons"
         android:text="CHOOSE DATE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,8 +111,9 @@
 
     <Button
         android:id="@+id/tempBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="155dp"
+        android:layout_height="44dp"
+        android:background="@drawable/roundbuttons"
         android:text="GO TO GAME ALARM"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,6 +126,7 @@
         android:id="@+id/newAlarmBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/roundbuttons"
         android:text="Possible new alarm interface"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"

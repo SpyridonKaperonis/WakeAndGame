@@ -29,8 +29,9 @@
         android:id="@+id/alarmTOG"
         android:layout_width="10dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_gravity="right"
+        android:layout_weight="1"
+        android:background="@drawable/roundbuttons"
         android:text="ToggleButton" />
 
     <Button
@@ -38,5 +39,6 @@
         android:layout_width="25px"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+
         android:background="@mipmap/trash" />
 </LinearLayout>

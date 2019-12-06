@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="javelinPrimary">#008800</color>
-    <color name="Buttons">#30b3b5</color>
+    <color name="Buttons">#1d8795</color>
     <color name="Background">#c3eeef</color>
+    <color name="startingColor">#eaf9fb</color>
+    <color name="endingColor">#26adc0</color>
+    <color name="phonebuttonscolor">#eaf9fb</color>
 </resources>

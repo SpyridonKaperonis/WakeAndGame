@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="javelinPrimary">#008800</color>
+    <color name="Buttons">#30b3b5</color>
+    <color name="Background">#c3eeef</color>
 </resources>

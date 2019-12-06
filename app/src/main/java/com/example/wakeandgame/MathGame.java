@@ -16,7 +16,7 @@ public class MathGame extends AppCompatActivity {
 
         final Intent home = new Intent(this, MainActivity.class);
 
-        Button mathBTNHome = findViewById(R.id.mathGameNav);
+        Button mathBTNHome = findViewById(R.id.mathGame);
         mathBTNHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

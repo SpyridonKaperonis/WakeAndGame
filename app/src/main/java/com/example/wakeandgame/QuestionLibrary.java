@@ -42,6 +42,41 @@ public class QuestionLibrary {
             "1995", "Rainbow Road", "Santa Monica", "Adventure", "Gameboy"
     };
 
+    public String getQuestionMath(int a) {
+        String question = mQuestionsMath[a];
+        return question;
+    }
+
+    public String getChoice1Math(int a) {
+        String choice1 = mChoicesMath[a][0];
+        return choice1;
+    }
+
+    public String getChoice2Math(int a) {
+        String choice2 = mChoicesMath[a][1];
+        return choice2;
+    }
+
+    public String getChoice3Math(int a) {
+        String choice3 = mChoicesMath[a][2];
+        return choice3;
+    }
+
+    public String getChoice4Math(int a) {
+        String choice4 = mChoicesMath[a][3];
+        return choice4;
+    }
+
+    public String getCorrectMath(int a) {
+        String answer = mCorrectMath[a];
+        return answer;
+    }
+
+    public int getLastMath() {
+        int last = mQuestionsMath.length;
+        return last;
+    }
+
     public String getQuestionVG(int a) {
         String question = mQuestionsVG[a];
         return question;
@@ -72,33 +107,78 @@ public class QuestionLibrary {
         return answer;
     }
 
-    public String getQuestionMath(int a) {
-        String question = mQuestionsMath[a];
+    public int getLastVG() {
+        int last = mQuestionsVG.length;
+        return last;
+    }
+
+    public String getQuestionCoding(int a) {
+        String question = mQuestionsVG[a];
         return question;
     }
 
-    public String getChoice1Math(int a) {
-        String choice1 = mChoicesMath[a][0];
+    public String getChoice1Coding(int a) {
+        String choice1 = mChoicesVG[a][0];
         return choice1;
     }
 
-    public String getChoice2Math(int a) {
-        String choice2 = mChoicesMath[a][1];
+    public String getChoice2Coding(int a) {
+        String choice2 = mChoicesVG[a][1];
         return choice2;
     }
 
-    public String getChoice3Math(int a) {
-        String choice3 = mChoicesMath[a][2];
+    public String getChoice3Coding(int a) {
+        String choice3 = mChoicesVG[a][2];
         return choice3;
     }
 
-    public String getChoice4Math(int a) {
-        String choice4 = mChoicesMath[a][3];
+    public String getChoice4Coding(int a) {
+        String choice4 = mChoicesVG[a][3];
         return choice4;
     }
 
-    public String getCorrectMath(int a) {
-        String answer = mCorrectMath[a];
+    public String getCorrectCoding(int a) {
+        String answer = mCorrectVG[a];
         return answer;
+    }
+
+    public int getLastCoding() {
+        int last = mQuestionsVG.length;
+        return last;
+    }
+
+    public String getQuestionMovies(int a) {
+        String question = mQuestionsVG[a];
+        return question;
+    }
+
+    public String getChoice1Movies(int a) {
+        String choice1 = mChoicesVG[a][0];
+        return choice1;
+    }
+
+    public String getChoice2Movies(int a) {
+        String choice2 = mChoicesVG[a][1];
+        return choice2;
+    }
+
+    public String getChoice3Movies(int a) {
+        String choice3 = mChoicesVG[a][2];
+        return choice3;
+    }
+
+    public String getChoice4Movies(int a) {
+        String choice4 = mChoicesVG[a][3];
+        return choice4;
+    }
+
+    public String getCorrectMovies(int a) {
+        String answer = mCorrectVG[a];
+        return answer;
+    }
+
+    public int getLastMovies() {
+        int last = mQuestionsVG.length;
+        return last;
     }
 }

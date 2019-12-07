@@ -13,7 +13,8 @@
         <activity android:name=".NewAlarmActivity"></activity>
         <activity android:name=".CardGameActivity" />
         <activity android:name=".MathGame" />
-        <activity android:name=".PicturePuzzle" />
+        <activity android:name=".PicturePuzzle"
+            android:label="Trivia Game"/>
         <activity
             android:name=".JavelinActivity"
             android:label="Javelin Toss" />

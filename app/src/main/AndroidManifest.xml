@@ -12,8 +12,10 @@
 
         <activity android:name=".NewAlarmActivity"></activity>
         <activity android:name=".CardGameActivity" />
-        <activity android:name=".MathGame" />
+        <activity android:name=".MathGame"
+                android:label="Math Game"/>
         <activity android:name=".PicturePuzzle" />
+
         <activity
             android:name=".JavelinActivity"
             android:label="Javelin Toss" />

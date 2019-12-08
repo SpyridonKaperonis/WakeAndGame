@@ -110,4 +110,84 @@ public class MathGame extends AppCompatActivity {
         maximum = 10;
         generator(maximum);
     }
+
+    public int getNum1() {
+        return num1;
+    }
+
+    public void setNum1(int num1) {
+        this.num1 = num1;
+    }
+
+    public int getNum2() {
+        return num2;
+    }
+
+    public void setNum2(int num2) {
+        this.num2 = num2;
+    }
+
+    public int getMaximum() {
+        return maximum;
+    }
+
+    public void setMaximum(int maximum) {
+        this.maximum = maximum;
+    }
+
+    public int getMinimum() {
+        return minimum;
+    }
+
+    public void setMinimum(int minimum) {
+        this.minimum = minimum;
+    }
+
+    public int getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(int question) {
+        this.answer = question;
+    }
+
+    public String getQuestionGen() {
+        return questionGen;
+    }
+
+    public void setQuestionGen(String questionGen) {
+        this.questionGen = questionGen;
+    }
+
+    public int getCorrectans() {
+        return correctans;
+    }
+
+    public void setCorrectans(int correctans) {
+        this.correctans = correctans;
+    }
+
+    public int getMistakes() {
+        return mistakes;
+    }
+
+    public void setMistakes(int mistakes) {
+        this.mistakes = mistakes;
+    }
+
+    public int getAddscore() {
+        return addscore;
+    }
+
+    public void setAddscore(int addscore) {
+        this.addscore = addscore;
+    }
+
+    public int getCountClick() {
+        return countClick;
+    }
+
+    public void setCountClick(int countClick) {
+        this.countClick = countClick;
+    }
 }

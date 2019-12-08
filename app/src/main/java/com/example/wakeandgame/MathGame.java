@@ -47,6 +47,31 @@ public class MathGame extends AppCompatActivity {
         minimum = 0;
         maximum = 10;
 
+        final Thread thread = new Thread(){
+            final TextView timedisplay = findViewById(R.id.countTime);
+            int seconds = 0;
+            @Override
+            public void run () {
+                while(!isInterrupted()) {
+                    try {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                seconds++;
+
+                                timedisplay.setText(String.valueOf(seconds));
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        thread.start();
+
+
     }
 
     //Random numbers generator

@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="7dp"
         android:background="@drawable/roundbuttons"
-        android:text="Puzzle Game" />
+        android:text="Triva Game" />
 
     <Button
         android:id="@+id/mathGame"

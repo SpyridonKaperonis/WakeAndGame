@@ -48,4 +48,25 @@ public class MathGame extends AppCompatActivity {
         maximum = 10;
 
     }
+
+    //Random numbers generator
+    public void generator(int maximum){
+        this.maximum = maximum;
+        Random randnumber = new Random();
+
+        num1 = randnumber.nextInt(maximum)+minimum;
+        num2 = randnumber.nextInt(maximum)+minimum;
+        answer = num1 + num2;
+
+
+
+        questionGen = num1 + " + " + num2 ;
+
+
+        TextView questionT = findViewById(R.id.questionTV);
+        questionT.setText(questionGen);
+
+
+
+    }
 }

@@ -99,4 +99,15 @@ public class MathGame extends AppCompatActivity {
 
 
     }
+    public void reset(){
+
+        addscore = 0;
+        correctans =0;
+        mistakes = 0;
+        TextView score =findViewById(R.id.scoreCount);
+        score.setText(Integer.toString(addscore));
+        minimum = 0;
+        maximum = 10;
+        generator(maximum);
+    }
 }

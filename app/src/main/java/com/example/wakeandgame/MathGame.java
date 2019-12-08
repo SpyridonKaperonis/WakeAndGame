@@ -81,5 +81,22 @@ public class MathGame extends AppCompatActivity {
             maximum = 10;
             return;
         }
+        else if(answer ==Integer.parseInt(number)) {
+            correctans++;
+            addscore = addscore + 10;
+            TextView score = findViewById(R.id.scoreCount);
+            score.setText(Integer.toString(addscore));
+            input.getText().clear();
+            // Toast.makeText(getApplicationContext(),"Holaaaa", Toast.LENGTH_LONG).show();
+
+        }else{
+            mistakes++;
+            addscore = addscore -10;
+            TextView score =findViewById(R.id.scoreCount);
+            score.setText(Integer.toString(addscore));
+            // Toast.makeText(getApplicationContext(),"Nooooo", Toast.LENGTH_LONG).show();
+        }
+
+
     }
 }

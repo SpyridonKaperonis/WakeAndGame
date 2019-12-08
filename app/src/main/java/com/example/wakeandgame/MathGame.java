@@ -50,23 +50,36 @@ public class MathGame extends AppCompatActivity {
     }
 
     //Random numbers generator
-    public void generator(int maximum){
+    public void generator(int maximum) {
         this.maximum = maximum;
         Random randnumber = new Random();
 
-        num1 = randnumber.nextInt(maximum)+minimum;
-        num2 = randnumber.nextInt(maximum)+minimum;
+        num1 = randnumber.nextInt(maximum) + minimum;
+        num2 = randnumber.nextInt(maximum) + minimum;
         answer = num1 + num2;
 
 
-
-        questionGen = num1 + " + " + num2 ;
+        questionGen = num1 + " + " + num2;
 
 
         TextView questionT = findViewById(R.id.questionTV);
         questionT.setText(questionGen);
 
 
+    }
 
+    public void checker() {
+
+        EditText input = findViewById(R.id.submition);
+        String number = input.getText().toString();
+        //int output = Integer.parseInt(number);
+        if (number.matches("")) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Enter a value", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
+            toast.show();
+            minimum = 0;
+            maximum = 10;
+            return;
+        }
     }
 }

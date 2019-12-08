@@ -23,6 +23,7 @@ import java.util.TimerTask;
 public class MathGame extends AppCompatActivity {
 
 
+
     private int num1;
     private int num2;
     private int maximum;
@@ -35,6 +36,8 @@ public class MathGame extends AppCompatActivity {
 
 
     private int countClick;
+
+
 
 
     @Override
@@ -72,40 +75,100 @@ public class MathGame extends AppCompatActivity {
         thread.start();
 
 
-    }
+        Button submit = findViewById(R.id.btnSub);
+        Button nextQ = findViewById(R.id.nextQuestion);
+        Button reset = findViewById(R.id.resetBtn);
 
+
+
+
+        generator(maximum);
+
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                checker();
+                toasts();
+                generator(maximum);
+                minimum = minimum +8;
+                maximum = maximum +8;
+
+            }
+        });
+
+        nextQ.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                generator(maximum);
+                minimum = minimum +8;
+                maximum = maximum +8;
+            }
+        });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reset();
+            }
+        });
+
+
+
+
+
+
+    }
     //Random numbers generator
-    public void generator(int maximum) {
+    public void generator(int maximum){
         this.maximum = maximum;
         Random randnumber = new Random();
 
-        num1 = randnumber.nextInt(maximum) + minimum;
-        num2 = randnumber.nextInt(maximum) + minimum;
+        num1 = randnumber.nextInt(maximum)+minimum;
+        num2 = randnumber.nextInt(maximum)+minimum;
         answer = num1 + num2;
 
 
-        questionGen = num1 + " + " + num2;
+
+        questionGen = num1 + " + " + num2 ;
 
 
         TextView questionT = findViewById(R.id.questionTV);
         questionT.setText(questionGen);
 
 
+
     }
 
-    public void checker() {
+    public void toasts(){
+        if(mistakes > correctans){
+            Toast.makeText(getApplicationContext(), "You can do better", Toast.LENGTH_SHORT).show();
+        }else if(correctans > 5){
+            String [] phrases = {"Yeah", "Vamos", "You got this","Let's go"};
+            String randomphrase = phrases[new Random().nextInt(phrases.length)];
+            Toast toast =Toast.makeText(getApplicationContext(),  randomphrase, Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
+            toast.show();
+
+
+
+        }
+    }
+    public void checker(){
 
         EditText input = findViewById(R.id.submition);
         String number = input.getText().toString();
         //int output = Integer.parseInt(number);
-        if (number.matches("")) {
+        if(number.matches("")){
             Toast toast = Toast.makeText(getApplicationContext(), "Enter a value", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
             toast.show();
-            minimum = 0;
-            maximum = 10;
+            minimum =0;
+            maximum =10;
             return;
         }
+
         else if(answer ==Integer.parseInt(number)) {
             correctans++;
             addscore = addscore + 10;
@@ -119,11 +182,14 @@ public class MathGame extends AppCompatActivity {
             addscore = addscore -10;
             TextView score =findViewById(R.id.scoreCount);
             score.setText(Integer.toString(addscore));
+            input.getText().clear();
             // Toast.makeText(getApplicationContext(),"Nooooo", Toast.LENGTH_LONG).show();
         }
 
-
     }
+
+
+
     public void reset(){
 
         addscore = 0;
@@ -136,83 +202,12 @@ public class MathGame extends AppCompatActivity {
         generator(maximum);
     }
 
-    public int getNum1() {
-        return num1;
-    }
 
-    public void setNum1(int num1) {
-        this.num1 = num1;
-    }
 
-    public int getNum2() {
-        return num2;
-    }
 
-    public void setNum2(int num2) {
-        this.num2 = num2;
-    }
 
-    public int getMaximum() {
-        return maximum;
-    }
 
-    public void setMaximum(int maximum) {
-        this.maximum = maximum;
-    }
 
-    public int getMinimum() {
-        return minimum;
-    }
 
-    public void setMinimum(int minimum) {
-        this.minimum = minimum;
-    }
 
-    public int getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(int question) {
-        this.answer = question;
-    }
-
-    public String getQuestionGen() {
-        return questionGen;
-    }
-
-    public void setQuestionGen(String questionGen) {
-        this.questionGen = questionGen;
-    }
-
-    public int getCorrectans() {
-        return correctans;
-    }
-
-    public void setCorrectans(int correctans) {
-        this.correctans = correctans;
-    }
-
-    public int getMistakes() {
-        return mistakes;
-    }
-
-    public void setMistakes(int mistakes) {
-        this.mistakes = mistakes;
-    }
-
-    public int getAddscore() {
-        return addscore;
-    }
-
-    public void setAddscore(int addscore) {
-        this.addscore = addscore;
-    }
-
-    public int getCountClick() {
-        return countClick;
-    }
-
-    public void setCountClick(int countClick) {
-        this.countClick = countClick;
-    }
 }

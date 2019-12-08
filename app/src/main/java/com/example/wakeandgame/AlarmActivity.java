@@ -15,7 +15,7 @@ public class AlarmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarm_layout);
 
-        Intent intent = getIntent();
+
 
         //Spyridon
         final Intent mathGameIntent = new Intent(this, MathGame.class);

@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.202" />
 
     <TextView
-        android:id="@+id/countTimes"
+        android:id="@+id/countTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -39,7 +39,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="84dp"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -53,12 +53,13 @@
         android:id="@+id/scoreCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="false"
         android:text="Score"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toEndOf="@+id/countTimes"
+        app:layout_constraintStart_toEndOf="@+id/countTime"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.061" />
 
@@ -87,7 +88,7 @@
         app:layout_constraintVertical_bias="0.04" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/resetBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/roundbuttons"

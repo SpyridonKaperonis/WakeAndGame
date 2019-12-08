@@ -142,7 +142,9 @@ public class MathGame extends AppCompatActivity {
     }
 
     public void toasts(){
-        if(mistakes > correctans){
+        EditText input = findViewById(R.id.submition);
+        String number = input.getText().toString();
+        if(mistakes > correctans && answer ==Integer.parseInt(number)){
             Toast.makeText(getApplicationContext(), "You can do better", Toast.LENGTH_SHORT).show();
         }else if(correctans > 5){
             String [] phrases = {"Yeah", "Vamos", "You got this","Let's go"};
